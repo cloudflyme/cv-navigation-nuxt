@@ -1,0 +1,275 @@
+body {
+  margin: 0;
+  background-color: #f5f5f5 !important;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', Segoe UI Symbol, 'Noto Color Emoji';
+  font-variant: tabular-nums;
+}
+div, span {
+  box-sizing: border-box;
+}
+a:hover {
+  color: #1890ff !important;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+h3 {
+  margin-bottom: 0 !important;
+}
+.container-main {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 1em;
+  background-color: rgba(50, 50, 50, 0.3);
+}
+::-webkit-scrollbar-track {
+  border-radius: 1em;
+  background-color: rgba(50, 50, 50, 0.1);
+}
+.list-box-item,
+.hot-box-item {
+  width: 164px;
+}
+@media (min-width: 1350px) and (max-width: 1800px) {
+  .list-box-item,
+  .hot-box-item {
+    width: calc(100% / 6);
+  }
+}
+@media (min-width: 835px) and (max-width: 1350px) {
+  .list-box-item,
+  .hot-box-item {
+    width: calc(100% / 5);
+  }
+}
+
+@media (min-width: 660px) and (max-width: 835px) {
+  .list-box-item,
+  .hot-box-item {
+    width: calc(100% / 4);
+  }
+}
+@media (min-width: 496px) and (max-width: 660px) {
+  .list-box-item,
+  .hot-box-item {
+    width: calc(100% / 3);
+  }
+}
+
+@media (min-width: 360px) and (max-width: 496px) {
+  .list-box-item,
+  .hot-box-item {
+    width: calc(100% / 2);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  section {
+    margin-right: 0 !important;
+    width: 96vw !important;
+  }
+  .hot-box {
+    padding: 25px !important;
+  }
+  h3 {
+    padding-left: 25px !important;
+  }
+  .list-box {
+    padding: 0 25px !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  section {
+    margin-right: 0 !important;
+    width: 80vw !important;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  h3 {
+    padding-left: 25px !important;
+  }
+  .list-box {
+    padding: 0 0 10px 25px !important;
+  }
+  .hot-box {
+    padding: 24px !important;
+  }
+  section {
+    margin-right: 0 !important;
+    width: 92vw !important;
+  }
+  .search {
+    padding: 12px 4vw !important;
+  }
+}
+
+@media (max-width: 1800px) {
+  .fold {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1800px) {
+  aside {
+    display: none !important;
+  }
+  section {
+    margin-right: 0 !important;
+    width: 70vw !important;
+  }
+}
+@media screen and (max-height: 600px) {
+  .icon-shuangmoshiqiehuan, .icon-bangzhu {
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .fixed-rigth {
+    display: none !important;
+  }
+  aside {
+    display: none !important;
+  }
+}
+.xiaoren {
+  height: 290px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+}
+@media screen and (max-width: 1400px) {
+  .xiaoren {
+    display: none;
+  }
+}
+.m-b-20 {
+  margin-bottom: 20px;
+}
+.b--r {
+  border-radius: 8px;
+}
+.f-s-15 {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: 0.5px solid #f5f5f5;
+  font-size: 15px;
+  font-weight: 600;
+}
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 弹框
+.tankuang {
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 5px;
+}
+
+// 右侧边栏样式
+.rankingList-item {
+  .rl-item-index {
+    font-size: 15px;
+  }
+  .rl-item-num {
+    width: 50px;
+    flex-shrink: 0;
+    font-size: 15px;
+    color: #9195a3;
+  }
+  a {
+    color: #2440b3 !important;
+  }
+  a:hover {
+    color: #315efb !important;
+    text-decoration: underline;
+  }
+  a:visited {
+    color: #771caa !important;
+  }
+}
+.rankingList-item:nth-child(2) {
+  .rl-item-index {
+    color: #fe2d46;
+  }
+  a::after {
+    content: '热';
+    display: inline-block;
+    padding: 0 2px;
+    background-color: #f60;
+    height: 16px;
+    color: #fff;
+    line-height: 16px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+}
+.rankingList-item:nth-child(3) {
+  .rl-item-index {
+    color: #f60;
+  }
+  a::after {
+    content: '热';
+    display: inline-block;
+    padding: 0 2px;
+    background-color: #f60;
+    height: 16px;
+    color: #fff;
+    line-height: 16px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+}
+.rankingList-item:nth-child(4) {
+  .rl-item-index {
+    color: #faa90e;
+  }
+  a::after {
+    content: '热';
+    display: inline-block;
+    padding: 0 2px;
+    background-color: #f60;
+    height: 16px;
+    color: #fff;
+    line-height: 16px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+}
+
+.rl-item-text {
+  width: 75%;
+}
+.rl-item-index {
+  display: inline-block;
+  width: 22px;
+}
+.rankingList {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  width: 350px;
+  background-color: #fff;
+  padding: 10px;
+  &-item {
+    display: flex;
+    justify-content: space-between;
+  }
+}

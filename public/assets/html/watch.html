@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en"><meta charset="UTF-8"><meta content="IE=edge" http-equiv="X-UA-Compatible"><meta content="width=device-width,initial-scale=1" name="viewport"><title>表盘时钟</title><style>body,html{margin:0;height:100%}body{display:flex;justify-content:center;align-items:center}li,ul{padding:0;margin:0}#watch{font-size:8px}#watch .frame-face{position:relative;width:30em;height:30em;margin-right:.5em;border-radius:15em;background:-webkit-linear-gradient(top,#f9f9f9,#dfdfdf);background:-moz-linear-gradient(top,#f9f9f9,#dfdfdf);background:linear-gradient(top,#f9f9f9,#dfdfdf);box-shadow:.5em .5em 4em rgba(0,0,0,.2)}#watch .frame-face:before{content:"";width:29.4em;height:29.4em;border-radius:14.7em;position:absolute;top:.3em;left:.3em;background:-webkit-radial-gradient(ellipse at center,#f6f8f9 0,#e5ebee 65%,#cdd4d9 66%,#f5f7f9 100%);background:-moz-radial-gradient(ellipse at center,#f6f8f9 0,#e5ebee 65%,#cdd4d9 66%,#f5f7f9 100%);background:radial-gradient(ellipse at center,#f6f8f9 0,#e5ebee 65%,#cdd4d9 66%,#f5f7f9 100%)}#watch .frame-face:after{content:"";width:28em;height:28em;border-radius:14.2em;position:absolute;top:.9em;left:.9em;box-shadow:inset rgba(0,0,0,.2) .2em .2em 1em;border:.1em solid rgba(0,0,0,.2);background:-webkit-linear-gradient(top,#fff,#ccc);background:-moz-linear-gradient(top,#fff,#ccc);background:linear-gradient(top,#fff,#ccc)}#minute-marks li{display:block;width:.2em;height:.6em;background:#929394;position:absolute;top:50%;left:50%;z-index:1;margin:-.4em 0 0 -.1em}#digits{z-index:2;width:30em;height:30em;border-radius:15em;position:absolute;top:0;left:50%;margin-left:-15em}#digits li{font-size:1.6em;display:block;width:1.6em;height:1.6em;position:absolute;top:50%;left:50%;line-height:1.6em;text-align:center;margin:-.8em 0 0 -.8em;font-weight:700}#digits li:nth-child(1){transform:translate(7em,0)}#digits li:nth-child(2){transform:translate(0,7em)}#digits li:nth-child(3){transform:translate(-7em,0)}#digits li:nth-child(4){transform:translate(0,-7em)}#digits:before{content:"";width:1.6em;height:1.6em;border-radius:.8em;position:absolute;top:50%;left:50%;margin:-.8em 0 0 -.8em;background:#121314}#digits:after{content:"";width:4em;height:4em;border-radius:2.2em;position:absolute;top:50%;left:50%;margin:-2.1em 0 0 -2.1em;border:.1em solid #c6c6c6;background:-webkit-radial-gradient(ellipse at center,rgba(200,200,200,0),#bebebe 90%,#828282 100%);background:-moz-radial-gradient(ellipse at center,rgba(200,200,200,0),#bebebe 90%,#828282 100%);background:radial-gradient(ellipse at center,rgba(200,200,200,0),#bebebe 90%,#828282 100%)}#watch .hours-hand{width:.8em;height:7em;z-index:4;border-radius:0 0 .9em .9em;background:#232425;position:absolute;bottom:50%;left:50%;margin:0 0 -.8em -.4em;box-shadow:#232425 0 0 2px;transform-origin:.4em 6.2em;transform:rotate(-25deg)}#watch .hours-hand:before{content:"";background:inherit;width:1.8em;height:.8em;border-radius:0 0 .8em .8em;box-shadow:#232425 0 0 1px;position:absolute;top:-.7em;left:-.5em}#watch .hours-hand:after{content:"";width:0;height:0;border:.9em solid #232425;border-width:0 .9em 2.4em .9em;border-left-color:transparent;border-right-color:transparent;position:absolute;top:-3.1em;left:-.5em}#watch .minutes-hand{width:.8em;height:12.5em;border-radius:.5em;background:#343536;position:absolute;bottom:50%;left:50%;margin:0 0 -1.5em -.4em;z-index:5;box-shadow:#343536 0 0 2px;transform-origin:.4em 11em}#watch .seconds-hand{z-index:6;width:.2em;height:14em;border-radius:.1em .1em 0 0/10em 10em 0 0;background:#c00;position:absolute;bottom:50%;left:50%;margin:0 0 -2em -.1em;box-shadow:rgba(0,0,0,.8) 0 0 .2em;transform-origin:.1em 12em}#watch .seconds-hand:after{content:"";width:1.4em;height:1.4em;border-radius:.7em;background:inherit;position:absolute;left:-.65em;bottom:1.35em}#watch .seconds-hand:before{content:"";width:.8em;height:3em;border-radius:.2em .2em .4em .4em/.2em .2em 2em 2em;box-shadow:rgba(0,0,0,.8) 0 0 .2em;background:inherit;position:absolute;left:-.35em;bottom:-3em}#watch .digital-wrap{display:flex;z-index:3;width:9em;height:3em;border:.1em solid #222;border-radius:.2em;position:absolute;top:50%;left:50%;margin:3em 0 0 -4.5em;overflow:hidden;background:#4c4c4c;background:-webkit-linear-gradient(top,#4c4c4c,#0f0f0f);background:-moz-linear-gradient(top,#4c4c4c,#0f0f0f);background:-ms-linear-gradient(top,#4c4c4c,#0f0f0f);background:-o-linear-gradient(top,#4c4c4c,#0f0f0f);background:linear-gradient(to bottom,#4c4c4c,#0f0f0f)}#watch .digital-wrap ul{width:2.9em;height:3em;border-right:.1em solid #000;color:#ddd;font-family:Consolas,monaco,monospace;text-align:center;line-height:3em}#watch .digital-wrap ul:last-child{width:3em;border:none}</style><div id="watch"><div class="frame-face"><ul id="minute-marks"></ul><ul id="digits"><li>3</li><li>6</li><li>9</li><li>12</li></ul><div class="hours-hand"></div><div class="minutes-hand"></div><div class="seconds-hand"></div><div class="digital-wrap"><ul class="digit-hours"></ul><ul class="digit-minutes"></ul><ul class="digit-seconds"></ul></div></div></div><script>function setTime() {
+      var time = new Date();
+      var hour = time.getHours();
+      var minute = time.getMinutes();
+      var second = time.getSeconds();
+      var hournum;
+      if (hour > 12) {
+        hournum = (hour - 12 + minute / 60) * 30;
+      } else {
+        hournum = (hour + minute / 60) * 30;
+      }
+      var minnum = (minute + second / 60) * 6 + Math.trunc(second / 60);
+      var sennum = second * 6;
+      document.getElementsByClassName("hours-hand")[0].style.transform =
+        "rotate(" + hournum + "deg)";
+      document.getElementsByClassName("minutes-hand")[0].style.transform =
+        "rotate(" + minnum + "deg)";
+      document.getElementsByClassName("seconds-hand")[0].style.transform =
+        "rotate(" + sennum + "deg)";
+      document.getElementsByClassName("digit-hours")[0].innerHTML = hour
+        .toString()
+        .padStart(2, "0");
+      document.getElementsByClassName("digit-minutes")[0].innerHTML = minute
+        .toString()
+        .padStart(2, "0");
+      document.getElementsByClassName("digit-seconds")[0].innerHTML = second
+        .toString()
+        .padStart(2, "0");
+    }
+    setTime();
+    // 生成刻度
+    let markWrap = document.getElementById("minute-marks");
+
+    for (let index = 0; index < 60; index++) {
+      let markItem = document.createElement("li");
+      markItem.style.cssText =
+        "transform:rotate(" + index * 6 + "deg) translateY(-12.7em)";
+      if (index % 5 == 0) {
+        markItem.style.width = "0.3em";
+        markItem.style.height = "1em";
+      }
+      markWrap.appendChild(markItem);
+    }
+
+    setInterval(function () {
+      setTime();
+    }, 1000);</script></html>
