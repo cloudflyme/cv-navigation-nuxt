@@ -79,7 +79,7 @@ const options = ref([
 const selectedKeys = ref([])
 const weather = ref('')
 function getCityWeater(city) {
-  ajaxGet('https://www.5cv.top/weather/weather_mini?city=' + city).then(res => {
+  ajaxGet('https://tenapi.cn/wether/?city=' + city).then(res => {
     weather.value =
       parseTime(+new Date(), '{m}月{d}日 星期{a} ') +
       res.data.wendu +

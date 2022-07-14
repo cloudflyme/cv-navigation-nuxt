@@ -66,7 +66,7 @@ function query(textList) {
 }
 
 onMounted(() => {
-  function getHotList(t) {
+  function getHotList() {
     ajaxGet(
       'https://39734fbc-b241-4d89-ad87-0befd655e266.bspapp.com/getHotList'
     )

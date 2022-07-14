@@ -5,10 +5,10 @@
       v-show="zhList.length > 0"
       class="rankingList-item"
       style="justify-content: flex-start"
-      v-for="(item, index) in zhList"
-      :key="index"
+      v-for="item in zhList"
+      :key="item.index"
     >
-      <span class="rl-item-index">{{ index + 1 }}</span>
+      <span class="rl-item-index">{{ item.index + 1 }}</span>
       <a
         :href="item.url"
         class="rl-item-text text-overflow"
@@ -26,15 +26,12 @@
 <script setup>
 import { ajaxGet } from '../utils/ajax'
 const zhList = ref([])
-ajaxGet('https://www.5cv.top/zhihu/').then(res => {
-  zhList.value = res.top_search.words.map(item => {
-    return {
-      query: item.query + ' ',
-      url: `https://www.zhihu.com/search?q=${encodeURIComponent(
-        item.query
-      )}&utm_content=search_hot&type=content`
-    }
+ajaxGet('https://tenapi.cn/zhihuresou/').then(res => {
+  res.list.forEach((item, index) => {
+    item.query = item.query + ' '
+    item.index = index
   })
+  zhList.value = res.list
 })
 onMounted(() => {})
 </script>

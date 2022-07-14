@@ -5,10 +5,10 @@
       v-show="wbList.length > 0"
       class="rankingList-item"
       style="justify-content: flex-start"
-      v-for="(item, index) in wbList"
-      :key="index"
+      v-for="item in wbList"
+      :key="item.index"
     >
-      <span class="rl-item-index">{{ index + 1 }}</span>
+      <span class="rl-item-index">{{ item.index + 1 }}</span>
       <a
         :href="item.url"
         class="rl-item-text text-overflow"
@@ -24,24 +24,14 @@
 </template>
 
 <script setup>
-import { ajaxGet } from '../utils/ajax'
+import { ajaxGet } from '../utils/ajax.js'
 const wbList = ref([])
-ajaxGet('https://www.5cv.top/weibo/').then(res => {
-  const data = []
-  for (let index = 0; index < 10; index++) {
-    if (!res.data.realtime[index].raw_hot) {
-      index--
-      continue
-    }
-    data.push({
-      name: res.data.realtime[index].word + ' ',
-      url:
-        'https://s.weibo.com/weibo?q=' +
-        encodeURIComponent(res.data.realtime[index].word_scheme),
-      hotScore: res.data.realtime[index].raw_hot
-    })
-  }
-  wbList.value = data
+ajaxGet('https://tenapi.cn/resou/').then(res => {
+  res.list.forEach((item, index) => {
+    item.name = item.name + ' '
+    item.index = index
+  })
+  wbList.value = res.list
 })
 onMounted(() => {})
 </script>
